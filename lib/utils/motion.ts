@@ -4,13 +4,14 @@ export const fadeIn = {
   transition: { duration: 0.5, ease: 'easeOut' }
 }
 
-export const staggerContainer = {
+export const staggerContainer = (staggerChildren = 0.1, delayChildren = 0) => ({
   initial: { opacity: 0 },
   animate: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1
+      staggerChildren,
+      delayChildren,
+      when: 'beforeChildren'
     }
   }
-}
+})

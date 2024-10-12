@@ -11,11 +11,9 @@ interface HyperTextProps {
   framerProps?: Variants
   className?: string
   animateOnLoad?: boolean
+  smoothness?: number
+  randomChars?: string
 }
-
-const alphabets = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
-
-const getRandomInt = (max: number) => Math.floor(Math.random() * max)
 
 export function HyperText({
   text,
@@ -26,38 +24,46 @@ export function HyperText({
     exit: { opacity: 0, y: 3 }
   },
   className,
-  animateOnLoad = true
+  animateOnLoad = true,
+  smoothness = 2,
+  randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&'
 }: HyperTextProps) {
   const [displayText, setDisplayText] = useState(text.split(''))
   const [trigger, setTrigger] = useState(false)
-  const interations = useRef(0)
+  const iterations = useRef(0)
   const isFirstRender = useRef(true)
 
   const triggerAnimation = () => {
-    interations.current = 0
+    iterations.current = 0
     setTrigger(true)
   }
 
   useEffect(() => {
+    if (!animateOnLoad && isFirstRender.current) {
+      isFirstRender.current = false
+      return
+    }
+
     const interval = setInterval(() => {
-      if (!animateOnLoad && isFirstRender.current) {
-        clearInterval(interval)
-        isFirstRender.current = false
-        return
-      }
-      if (interations.current < text.length) {
+      if (iterations.current < text.length * smoothness) {
         setDisplayText((t) =>
-          t.map((l, i) => (l === ' ' ? l : i <= interations.current ? text[i] : alphabets[getRandomInt(26)]))
+          t.map((l, i) => {
+            if (l === ' ') return l
+            const progress = iterations.current / smoothness - i
+            if (progress >= 1) return text[i]
+            if (progress <= 0) return randomChars[Math.floor(Math.random() * randomChars.length)]
+            return Math.random() < progress ? text[i] : randomChars[Math.floor(Math.random() * randomChars.length)]
+          })
         )
-        interations.current = interations.current + 0.1
+        iterations.current++
       } else {
         setTrigger(false)
         clearInterval(interval)
       }
-    }, duration / (text.length * 10))
-    // Clean up interval on unmount
+    }, duration / (text.length * smoothness))
+
     return () => clearInterval(interval)
-  }, [text, duration, trigger, animateOnLoad])
+  }, [text, duration, trigger, animateOnLoad, smoothness, randomChars])
 
   return (
     <div
@@ -65,12 +71,12 @@ export function HyperText({
       onMouseEnter={triggerAnimation}>
       <AnimatePresence>
         {displayText.map((letter, i) => (
-          <motion.h1
+          <motion.span
             key={i}
             className={cn('font-mono', letter === ' ' ? 'w-3' : '', className)}
             {...framerProps}>
-            {letter.toUpperCase()}
-          </motion.h1>
+            {letter}
+          </motion.span>
         ))}
       </AnimatePresence>
     </div>
