@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { Person, WithContext } from 'schema-dts'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -32,12 +33,32 @@ const itemVariants = {
 export default function HomePage() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
+  const jsonLd: WithContext<Person> = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Tariel Davidashvili',
+    familyName: 'Davidashvili',
+    givenName: 'Tariel',
+    gender: 'male',
+    nationality: 'Canada',
+    birthPlace: 'Baku, Azerbaijan',
+    birthDate: '1994-04-01',
+    email: 'hello@tariel.me',
+    description: 'Hobbyist developer with a passion for creating useful and beautiful things.',
+    url: 'https://tarieldavids.com',
+    sameAs: ['https://github.com/iamlite', 'https://linkedin.com/in/tariel-davidashvili']
+  }
+
   return (
     <motion.div
       className='min-h-screen flex items-center justify-center p-4'
       initial='hidden'
       animate='visible'
       variants={containerVariants}>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className='max-w-2xl w-full space-y-20 font-mono'>
         <motion.h1
           className='text-3xl font-bold text-foreground border-b border-border pb-2 '
