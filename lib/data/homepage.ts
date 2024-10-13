@@ -17,7 +17,7 @@ export const projects = [
     href: 'https://accessibledesigns.ca',
     text: 'Accessible Design Group',
     favicon: 'adg.png',
-    description: 'A simple website for Accessible Design Group.'
+    description: 'A website for Accessible Design Group.'
   },
   {
     href: 'https://github.com/iamlite/wled-klipper-helper',
