@@ -8,8 +8,8 @@ export const projects = [
     description: 'A modern color library.'
   },
   {
-    href: 'https://shadcn.tariel.me',
-    text: 'Shadcn UI Theme Generator',
+    href: 'https://shadesigner.com',
+    text: 'ShaDesigner.com',
     favicon: 'shadcndesigner.png',
     description: 'A CSS palette generator for Shadcn UI'
   },
