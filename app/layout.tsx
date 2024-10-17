@@ -12,10 +12,6 @@ export const metadata: Metadata = {
   authors: [{ name: 'Tariel Davidashvili', url: 'https://tarieldavids.com' }],
   publisher: 'Tariel Davidashvili',
   creator: 'Tariel Davidashvili',
-  generator: 'Next.js',
-  applicationName: 'Tariel Davidashvili',
-  metadataBase: new URL('https://tarieldavids.com'),
-  keywords: ['Tariel Davidashvili', 'Canada', 'Ottawa'],
   robots: {
     index: true,
     follow: true,
@@ -24,16 +20,6 @@ export const metadata: Metadata = {
       follow: true
     }
   },
-  icons: {
-    icon: [
-      { url: '/assets/favicon.ico' },
-      { url: '/assets/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
-      { url: '/assets/favicon.svg', type: 'image/svg+xml' }
-    ],
-    shortcut: '/assets/favicon.ico',
-    apple: '/assets/apple-touch-icon.png'
-  },
-  manifest: '/assets/site.webmanifest',
   appleWebApp: {
     title: 'Tariel Davidashvili',
     statusBarStyle: 'black-translucent'
@@ -44,10 +30,31 @@ export const metadata: Metadata = {
       'en-US': 'https://tarieldavids.com'
     }
   },
+  openGraph: {
+    type: 'website',
+    url: 'https://tarieldavids.com',
+    title: 'Tariel Davidashvili',
+    description: '-',
+    siteName: 'Tariel Davidashvili',
+    images: [
+      {
+        url: 'https://tarieldavids.com/opengraph-image',
+        width: 1200,
+        height: 630
+      }
+    ]
+  },
   twitter: {
     title: 'Tariel Davidashvili',
     description: '-',
-    creator: 'Tariel Davidashvili'
+    creator: 'Tariel Davidashvili',
+    images: [
+      {
+        url: 'https://tarieldavids.com/twitter-image',
+        width: 1200,
+        height: 600
+      }
+    ]
   }
 }
 
