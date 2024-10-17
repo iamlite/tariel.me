@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Tariel Davidashvili',
-  description: '-',
+  description: 'Aspiring lawyer with a passion for technology, AI, and creating useful things.',
   authors: [{ name: 'Tariel Davidashvili', url: 'https://tarieldavids.com' }],
   publisher: 'Tariel Davidashvili',
   creator: 'Tariel Davidashvili',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://tarieldavids.com',
     title: 'Tariel Davidashvili',
-    description: '-',
+    description: 'Aspiring lawyer with a passion for technology, AI, and creating useful things.',
     siteName: 'Tariel Davidashvili',
     images: [
       {
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     title: 'Tariel Davidashvili',
-    description: '-',
+    description: 'Aspiring lawyer with a passion for technology, AI, and creating useful things.',
     creator: 'Tariel Davidashvili',
     images: [
       {
