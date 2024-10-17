@@ -34,15 +34,21 @@ export default async function Image() {
             padding: '16px',
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
           }}>
-          <img
-            src='https://shadesigner.com/favicon-32x32.png'
-            width={128}
-            height={128}
-            alt='Shadesigner Logo'
+          <div
             style={{
+              width: '256px',
+              height: '256px',
+              display: 'flex',
+              justifyContent: 'center',
+              overflow: 'hidden',
               borderRadius: '50%'
-            }}
-          />
+            }}>
+            <img
+              src='https://tarieldavids.com/assets/tariel_davidashvili.png'
+              style={{ width: '100%', objectFit: 'cover' }}
+              alt='Tariel Davidashvili Profile Picture'
+            />
+          </div>
         </div>
         <h1
           style={{
@@ -54,18 +60,8 @@ export default async function Image() {
             maxWidth: '900px',
             textShadow: '0 2px 4px rgba(0, 0, 0, 0.2)'
           }}>
-          Design Beautiful Color Palettes for Shadcn UI
+          Tariel Davidashvili
         </h1>
-        <p
-          style={{
-            fontSize: '32px',
-            color: 'rgba(255, 255, 255, 0.9)',
-            textAlign: 'center',
-            marginTop: '20px',
-            textShadow: '0 1px 2px rgba(0, 0, 0, 0.1)'
-          }}>
-          Create stunning, harmonious color schemes with ease
-        </p>
       </div>
     ),
     {
