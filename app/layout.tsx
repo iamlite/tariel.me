@@ -47,7 +47,6 @@ export const metadata: Metadata = {
   twitter: {
     title: 'Tariel Davidashvili',
     description: '-',
-    site: '@tarieldavids',
     creator: 'Tariel Davidashvili',
     images: 'https://tarieldavids.com/og.png'
   }
