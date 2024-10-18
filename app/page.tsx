@@ -85,16 +85,16 @@ export default function HomePage() {
       />
 
       <div className='max-w-4xl w-full font-mono mb-8'>
-        <div className='flex'>
+        <div className='flex flex-col md:flex-row'>
           <motion.div
-            className='mr-8 flex items-center justify-center'
+            className='mb-8 md:mb-0 md:mr-8 flex items-center justify-center'
             variants={itemVariants}>
             <Image
               src='/assets/td.png'
               alt='Tariel Davidashvili'
               width={250}
               height={250}
-              className='rounded-3xl '
+              className='rounded-3xl'
             />
           </motion.div>
 
