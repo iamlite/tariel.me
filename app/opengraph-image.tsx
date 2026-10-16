@@ -1,7 +1,6 @@
+import { loadInterBoldFont } from '@/lib/og-font'
 import { colorPairs, OgAlt, OGSize as size } from '@/lib/vars'
 import { ImageResponse } from 'next/og'
-
-export const runtime = 'edge'
 
 export const alt = OgAlt
 
@@ -69,7 +68,7 @@ export default async function Image() {
       fonts: [
         {
           name: 'Inter',
-          data: await fetch(new URL('./fonts/Inter-Bold.ttf', import.meta.url)).then((res) => res.arrayBuffer()),
+          data: await loadInterBoldFont(),
           weight: 700,
           style: 'normal'
         }

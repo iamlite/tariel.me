@@ -7,7 +7,8 @@ export async function POST(request: Request) {
   // Check credentials against environment variables
   if (user === process.env.NEXT_PUBLIC_USER_NAME && pass === process.env.NEXT_PUBLIC_USER_PASS) {
     // Set an authenticated cookie if valid
-    cookies().set({
+    const cookieStore = await cookies()
+    cookieStore.set({
       name: 'auth',
       value: 'authenticated',
       httpOnly: true,

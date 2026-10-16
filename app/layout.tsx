@@ -7,6 +7,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://tarieldavids.com'),
   title: 'Tariel Davidashvili',
   description: 'Aspiring lawyer with a passion for technology, AI, and creating useful things.',
   authors: [{ name: 'Tariel Davidashvili', url: 'https://tarieldavids.com' }],
@@ -64,7 +65,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='en'>
+    <html
+      lang='en'
+      suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
         <Analytics />
         <ThemeProvider

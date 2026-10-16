@@ -94,7 +94,9 @@ export default function HomePage() {
               alt='Tariel Davidashvili'
               width={250}
               height={250}
+              priority
               className='rounded-3xl'
+              style={{ width: 'auto', height: 'auto', maxWidth: 250, maxHeight: 250 }}
             />
           </motion.div>
 
