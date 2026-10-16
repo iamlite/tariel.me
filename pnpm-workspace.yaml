@@ -1,3 +1,6 @@
+packages:
+  - '.'
+
 minimumReleaseAgeExclude:
   - '@next/env@16.4.2'
   - '@next/eslint-plugin-next@16.4.2'
