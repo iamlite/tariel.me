@@ -1,11 +1,9 @@
 'use client'
 
-import { HyperText } from '@/components/ui/hyper-text'
-import { contacts, projects } from '@/lib/data/homepage'
+import { contacts } from '@/lib/data/homepage'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
 import { Person, WebPage, WebSite, WithContext } from 'schema-dts'
 
 const containerVariants = {
@@ -31,8 +29,6 @@ const itemVariants = {
 }
 
 export default function HomePage() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
-
   const jsonLdPerson: WithContext<Person> = {
     '@context': 'https://schema.org',
     '@type': 'Person',
@@ -44,7 +40,7 @@ export default function HomePage() {
     birthPlace: 'Baku, Azerbaijan',
     birthDate: '1994-04-01',
     email: 'hello@tariel.me',
-    description: 'Aspiring lawyer with a passion for technology, AI, and creating useful things.',
+    description: 'Legally inclined. Technically curious. JD Candidate at Lakehead University.',
     url: 'https://tarieldavids.com',
     sameAs: ['https://github.com/iamlite', 'https://linkedin.com/in/tariel-davidashvili'],
     image: 'https://tarieldavids.com/assets/tariel_davidashvili.png'
@@ -62,7 +58,8 @@ export default function HomePage() {
     '@type': 'WebPage',
     name: 'Tariel Davidashvili',
     url: 'https://tarieldavids.com',
-    description: 'Personal website of Tariel Davidashvili, aspiring lawyer with a passion for technology and AI.'
+    description:
+      'Personal website of Tariel Davidashvili — legally inclined, technically curious, JD Candidate at Lakehead University.'
   }
 
   return (
@@ -107,64 +104,17 @@ export default function HomePage() {
               Tariel Davidashvili
             </motion.h1>
 
-            <div className='mb-8'>
+            <div className='mb-8 space-y-2'>
               <motion.p
                 className='text-muted-foreground leading-relaxed text-xs'
                 variants={itemVariants}>
-                Aspiring lawyer and hobbyist developer with a focus on the intersection of technology and law.
-              </motion.p>
-            </div>
-
-            <div className='space-y-4'>
-              <motion.p
-                className='text-foreground leading-relaxed text-xs'
-                variants={itemVariants}>
-                &gt; Currently working on an AI tool that leverages RAG (retrieval augmented generation), structured
-                outputs, and multiple agents to analyze and generate large legal documents based on local data using
-                local LLMs for privacy.
+                Legally inclined. Technically curious.
               </motion.p>
               <motion.p
-                className='text-muted-foreground leading-relaxed text-sm'
+                className='text-muted-foreground leading-relaxed text-xs'
                 variants={itemVariants}>
-                +
+                JD Candidate · Lakehead University
               </motion.p>
-              {projects.map((project, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className='flex items-center space-x-2 cursor-pointer'
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}>
-                  <Link
-                    href={project.href}
-                    className='flex items-center space-x-2'>
-                    {hoveredIndex === index && (
-                      <motion.div
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -10 }}
-                        transition={{ duration: 0.2 }}>
-                        <Image
-                          src={`/projects/${project.favicon}`}
-                          alt={`${project.text} favicon`}
-                          width={24}
-                          height={24}
-                          className='rounded-full'
-                        />
-                      </motion.div>
-                    )}
-                    <div className='flex items-center space-x-2'>
-                      <HyperText
-                        text={`[${project.text}]`}
-                        animateOnLoad={false}
-                        duration={300}
-                        className='text-sm'
-                      />
-                      <span className='text-muted-foreground text-sm'>{project.description}</span>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
             </div>
           </div>
         </div>
