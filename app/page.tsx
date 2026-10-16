@@ -81,7 +81,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebPage) }}
       />
 
-      <div className='max-w-4xl w-full font-mono mb-8'>
+      <div className='max-w-2xl w-full font-mono mb-8'>
         <div className='flex flex-col md:flex-row'>
           <motion.div
             className='mb-8 md:mb-0 md:mr-8 flex items-center justify-center'
@@ -97,14 +97,14 @@ export default function HomePage() {
             />
           </motion.div>
 
-          <div className='flex-1'>
-            <motion.h1
-              className='text-3xl font-bold text-foreground border-b border-border pb-2 mb-4'
-              variants={itemVariants}>
-              Tariel Davidashvili
-            </motion.h1>
+          <div className='flex-1 flex flex-col md:min-h-62.5'>
+            <div className='space-y-2'>
+              <motion.h1
+                className='text-3xl font-bold text-foreground border-b border-border pb-2 mb-4'
+                variants={itemVariants}>
+                Tariel Davidashvili
+              </motion.h1>
 
-            <div className='mb-8 space-y-2'>
               <motion.p
                 className='text-muted-foreground leading-relaxed text-xs'
                 variants={itemVariants}>
@@ -113,33 +113,36 @@ export default function HomePage() {
               <motion.p
                 className='text-muted-foreground leading-relaxed text-xs'
                 variants={itemVariants}>
-                JD Candidate · Lakehead University
+                JD Candidate · Bora Laskin Faculty of Law
+              </motion.p>
+              <motion.p
+                className='text-muted-foreground leading-relaxed text-xs'
+                variants={itemVariants}>
+                Lakehead University
               </motion.p>
             </div>
+
+            <motion.div className='mt-auto pt-4' variants={itemVariants}>
+              <div className='flex flex-wrap justify-start gap-4'>
+                {contacts.map((contact, index) => (
+                  <motion.div key={index} variants={itemVariants}>
+                    <Link
+                      href={contact.href}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='flex items-center space-x-2 hover:underline text-xs'>
+                      <contact.icon className='w-5 h-5' />
+                      <span>{contact.text}</span>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
 
-      <motion.div
-        className='w-full max-w-4xl'
-        variants={itemVariants}>
-        <div className='flex flex-wrap justify-center gap-4'>
-          {contacts.map((contact, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}>
-              <Link
-                href={contact.href}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='flex items-center space-x-2 hover:underline'>
-                <contact.icon className='w-5 h-5' />
-                <span>{contact.text}</span>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
+
 
       <footer className='absolute bottom-4 text-xs text-muted-foreground mt-24'>
         © {new Date().getFullYear()} Tariel Davidashvili. All rights reserved.
