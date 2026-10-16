@@ -5,7 +5,7 @@ export const projects = [
     href: 'https://color-core.com',
     text: 'Color Core',
     favicon: 'color-core.png',
-    description: 'A modern color library.'
+    description: 'A modern color library'
   },
   {
     href: 'https://shadesigner.com',
