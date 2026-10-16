@@ -81,7 +81,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebPage) }}
       />
 
-      <div className='max-w-2xl w-full font-mono mb-8'>
+      <div className='max-w-3xl w-full font-mono mb-8'>
         <div className='flex flex-col md:flex-row'>
           <motion.div
             className='mb-8 md:mb-0 md:mr-8 flex items-center justify-center'
@@ -89,41 +89,41 @@ export default function HomePage() {
             <Image
               src='/assets/td.png'
               alt='Tariel Davidashvili'
-              width={250}
-              height={250}
+              width={300}
+              height={300}
               priority
-              className='rounded-3xl'
-              style={{ width: 'auto', height: 'auto', maxWidth: 250, maxHeight: 250 }}
+              className='rounded-3xl shadow-xl shadow-accent/30'
+              style={{ width: 'auto', height: 'auto', maxWidth: 300, maxHeight: 300 }}
             />
           </motion.div>
 
           <div className='flex-1 flex flex-col md:min-h-62.5'>
             <div className='space-y-2'>
               <motion.h1
-                className='text-3xl font-bold text-foreground border-b border-border pb-2 mb-4'
+                className='text-3xl font-bold text-foreground border-b border-border pb-2 mb-4 text-end'
                 variants={itemVariants}>
                 Tariel Davidashvili
               </motion.h1>
 
               <motion.p
-                className='text-muted-foreground leading-relaxed text-xs'
+                className='text-muted-foreground leading-relaxed text-xs text-end'
                 variants={itemVariants}>
                 Legally inclined. Technically curious.
               </motion.p>
               <motion.p
-                className='text-muted-foreground leading-relaxed text-xs'
+                className='text-muted-foreground leading-relaxed text-xs text-end'
                 variants={itemVariants}>
                 JD Candidate · Bora Laskin Faculty of Law
               </motion.p>
               <motion.p
-                className='text-muted-foreground leading-relaxed text-xs'
+                className='text-muted-foreground leading-relaxed text-xs text-end'
                 variants={itemVariants}>
                 Lakehead University
               </motion.p>
             </div>
 
             <motion.div className='mt-auto pt-4' variants={itemVariants}>
-              <div className='flex flex-wrap justify-start gap-4'>
+              <div className='flex flex-wrap justify-end gap-4'>
                 {contacts.map((contact, index) => (
                   <motion.div key={index} variants={itemVariants}>
                     <Link
